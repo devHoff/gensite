@@ -96,9 +96,26 @@ body {
 .section-wrap {
   padding-top:    6rem;
   padding-bottom: 6rem;
+  /* No hard border — use gradient blend overlays per-section instead */
 }
 @media (min-width: 768px)  { .section-wrap { padding-top: 8rem;  padding-bottom: 8rem;  } }
 @media (min-width: 1024px) { .section-wrap { padding-top: 10rem; padding-bottom: 10rem; } }
+
+/* ── Smooth section separation blend ── */
+.section-blend-top {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 140px;
+  pointer-events: none;
+  z-index: 1;
+}
+.section-blend-bottom {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 140px;
+  pointer-events: none;
+  z-index: 1;
+}
 
 /* ─────────────────────────────────────────
    TYPOGRAPHY

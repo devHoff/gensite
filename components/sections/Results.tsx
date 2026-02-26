@@ -92,7 +92,9 @@ export default function Results({ lang = "pt" }: { lang?: Lang }) {
   }, []);
 
   return (
-    <section ref={ref} id="resultados" className="section-wrap" style={{ background: "#111214", borderTop: "1px solid #1E2024" }}>
+    <section ref={ref} id="resultados" style={{ background: "#111214", position: "relative", overflow: "hidden", paddingTop: "8rem", paddingBottom: "8rem" }}>
+      {/* Top blend */}
+      <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "130px", background: "linear-gradient(to bottom, #0A0B0D, transparent)", pointerEvents: "none" }} />
       <div className="site-container">
 
         {/* Header */}
@@ -165,6 +167,9 @@ export default function Results({ lang = "pt" }: { lang?: Lang }) {
         </div>
 
       </div>
+
+      {/* Bottom blend */}
+      <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: "130px", background: "linear-gradient(to bottom, transparent, #111214)", pointerEvents: "none" }} />
     </section>
   );
 }

@@ -113,12 +113,13 @@ export default function DemoSection({ lang = "pt" }: { lang?: Lang }) {
         style={{
           position: "relative",
           background: "#111214",
-          borderTop: "1px solid #1E2024",
           overflow: "hidden",
-          paddingTop: "7rem",
-          paddingBottom: "7rem",
+          paddingTop: "8rem",
+          paddingBottom: "8rem",
         }}
       >
+        {/* Top blend */}
+        <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "130px", background: "linear-gradient(to bottom, #0A0B0D, transparent)", pointerEvents: "none", zIndex: 0 }} />
         {/* Background flow lines */}
         <DataFlowLines variant="section" />
         <div style={{
@@ -148,14 +149,22 @@ export default function DemoSection({ lang = "pt" }: { lang?: Lang }) {
               ))}
             </div>
 
-            {/* CTA */}
+            {/* CTA — Calendly */}
             <div className="fade-up" style={{ marginBottom: "3.5rem", transitionDelay: "0.18s" }}>
-              <button className="btn-cta" onClick={() => setOpen(true)} style={{ fontSize: "0.875rem", padding: "0.75rem 1.75rem" }}>
+              <a
+                href="https://calendly.com/arthur-renck3/book-demo"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-cta"
+                style={{ fontSize: "0.9rem", padding: "0.85rem 2rem", borderRadius: "8px",
+                  boxShadow: "0 0 30px rgba(242,101,34,0.25)",
+                  display: "inline-flex", alignItems: "center", gap: "0.5rem" }}
+              >
                 {tx.cta}
                 <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
                   <path d="M3 7H11M11 7L8 4M11 7L8 10" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>
-              </button>
+              </a>
             </div>
 
             {/* Session format */}
@@ -178,6 +187,9 @@ export default function DemoSection({ lang = "pt" }: { lang?: Lang }) {
 
           </div>
         </div>
+
+        {/* Bottom blend */}
+        <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: "100px", background: "linear-gradient(to bottom, transparent, #0A0B0D)", pointerEvents: "none" }} />
       </section>
 
       {/* ── MODAL ── */}

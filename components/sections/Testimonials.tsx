@@ -41,8 +41,8 @@ const testimonials_en = [
 ];
 
 const copy = {
-  pt: { label: "Depoimentos", headline: "O que nossos clientes dizem.", items: testimonials_pt },
-  en:  { label: "Testimonials", headline: "What our clients say.", items: testimonials_en },
+  pt: { label: "Depoimentos", headline: "Empresas que transformaram seus resultados.", items: testimonials_pt },
+  en:  { label: "Testimonials", headline: "Companies that transformed their results.", items: testimonials_en },
 };
 
 /* ── Single card ── */
@@ -124,8 +124,16 @@ export default function Testimonials({ lang = "pt" }: { lang?: Lang }) {
   const row2 = tx.items.slice(4);
 
   return (
-    <section ref={ref} id="depoimentos" className="section-wrap"
-      style={{ background: "#0A0B0D", borderTop: "1px solid #1E2024", overflow: "hidden" }}>
+    <section ref={ref} id="depoimentos" style={{
+      background: "#0A0B0D",
+      overflow: "hidden",
+      paddingTop: "8rem",
+      paddingBottom: "8rem",
+      position: "relative",
+    }}>
+      {/* Top blend */}
+      <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "130px", background: "linear-gradient(to bottom, #111214, transparent)", pointerEvents: "none" }} />
+
       <div className="site-container">
         {/* Header */}
         <div style={{ marginBottom: "3.5rem" }}>
@@ -144,6 +152,9 @@ export default function Testimonials({ lang = "pt" }: { lang?: Lang }) {
         <MarqueeRow items={row1} reverse={false} />
         <MarqueeRow items={row2} reverse={true} />
       </div>
+
+      {/* Bottom blend */}
+      <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: "130px", background: "linear-gradient(to bottom, transparent, #111214)", pointerEvents: "none" }} />
 
       <style>{`
         .testi-card {

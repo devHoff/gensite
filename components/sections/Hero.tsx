@@ -6,27 +6,43 @@ type Lang = "pt" | "en";
 
 const copy = {
   pt: {
-    tag: "status: live",
-    headline: "Infraestrutura tecnológica para automação em escala.",
-    sub: "Projetamos, implementamos e operamos sistemas de automação inteligente com foco em escala operacional.",
-    cta: "Agendar Demo",
+    badge: "PARA STARTUPS E EMPRESAS EM CRESCIMENTO",
+    badgeDot: "VAGAS LIMITADAS",
+    headline1: "Automatize Processos,",
+    headline2: "Escale 10x Mais Rápido",
+    headline3: "com Agentes de IA.",
+    sub: "Faça em 3 dias o que levaria 1 mês. Agentes de IA constroem funcionalidades, executam automações e entregam resultados enquanto você foca na estratégia.",
+    cta: "Agendar Free Demo →",
+    trust: [
+      "Sem cartão de crédito",
+      "Onboarding 1-a-1 incluso",
+      "Primeiros resultados em 72h",
+    ],
     metrics: [
-      { value: "+1M$", label: "Valor agregado"   },
-      { value: "~308%",    label: "Mais respostas"   },
-      { value: "< 0.2s",label: "Tempo de resposta"  },
-      { value: "+100M",    label: "Eventos / dia"         },
+      { value: "+1M$",   label: "Valor Gerado"      },
+      { value: "~308%",  label: "Mais Respostas"    },
+      { value: "< 0.2s", label: "Tempo de Resposta" },
+      { value: "+100M",  label: "Eventos / Dia"     },
     ],
   },
   en: {
-    tag: "OPERATIONAL TECHNOLOGICAL INFRASTRUCTURE",
-    headline: "Technological infrastructure for automation at scale.",
-    sub: "We design, implement and operate intelligent automation systems focused on operational scale.",
-    cta: "Schedule Demo",
+    badge: "FOR STARTUPS & GROWING COMPANIES",
+    badgeDot: "LIMITED SPOTS",
+    headline1: "Automate Processes,",
+    headline2: "Scale 10x Faster",
+    headline3: "with AI Agents.",
+    sub: "Get a month's worth of work done in 3 days. AI agents build features, run automations and deliver results while you focus on strategy.",
+    cta: "Book Free Demo →",
+    trust: [
+      "No credit card required",
+      "1-on-1 onboarding included",
+      "First results in 72h",
+    ],
     metrics: [
-      { value: "99.98%", label: "SLA Availability"      },
-      { value: "12×",    label: "Overhead reduction"    },
-      { value: "< 200ms",label: "Operational latency"   },
-      { value: "10⁸",    label: "Events / day"          },
+      { value: "+$1M",   label: "Value Generated"   },
+      { value: "~308%",  label: "More Responses"    },
+      { value: "< 0.2s", label: "Response Time"     },
+      { value: "+100M",  label: "Events / Day"      },
     ],
   },
 };
@@ -61,6 +77,19 @@ export default function Hero({ lang = "pt" }: { lang?: Lang }) {
         background: "#0A0B0D",
       }}
     >
+      {/* Orange radial glow — top center */}
+      <div style={{
+        position: "absolute",
+        top: "-10%",
+        left: "50%",
+        transform: "translateX(-50%)",
+        width: "900px",
+        height: "600px",
+        borderRadius: "50%",
+        background: "radial-gradient(ellipse at center, rgba(242,101,34,0.18) 0%, rgba(242,101,34,0.06) 40%, transparent 70%)",
+        pointerEvents: "none",
+      }} aria-hidden="true" />
+
       {/* Technical grid */}
       <div className="tech-grid" />
       <div className="tech-grid tech-grid-fine" style={{ position: "absolute", inset: 0, pointerEvents: "none" }} />
@@ -68,76 +97,144 @@ export default function Hero({ lang = "pt" }: { lang?: Lang }) {
       {/* Animated data flow lines */}
       <DataFlowLines variant="hero" />
 
-      {/* Vignette */}
+      {/* Dark vignette bottom */}
       <div style={{
         position: "absolute", inset: 0, pointerEvents: "none",
-        background: "radial-gradient(ellipse 65% 75% at 48% 46%, transparent 0%, rgba(10,11,13,0.35) 55%, #0A0B0D 100%)",
+        background: "radial-gradient(ellipse 80% 60% at 50% 40%, transparent 0%, rgba(10,11,13,0.25) 60%, #0A0B0D 100%)",
       }} aria-hidden="true" />
 
       {/* Content */}
-      <div className="site-container" style={{ position: "relative", zIndex: 10, padding: "5rem 1.5rem 4rem" }}>
-        <div style={{ maxWidth: "860px" }}>
+      <div className="site-container" style={{ position: "relative", zIndex: 10, padding: "5rem 1.5rem 5rem" }}>
+        <div style={{ maxWidth: "820px", margin: "0 auto", textAlign: "center" }}>
 
-          {/* Tag */}
-          <div
-            className="fade-up"
-            style={{ display: "flex", alignItems: "center", gap: "0.75rem", marginBottom: "2.5rem", animationDelay: "0.05s" }}
-          >
-            <div className="status-dot" />
-            <span className="label-tag">{tx.tag}</span>
-            <div style={{ width: "48px", height: "1px", background: "#1E2024" }} />
+          {/* Badge */}
+          <div className="fade-up" style={{
+            display: "inline-flex", alignItems: "center", gap: "0.75rem",
+            background: "rgba(242,101,34,0.08)", border: "1px solid rgba(242,101,34,0.2)",
+            borderRadius: "999px", padding: "0.4rem 1rem 0.4rem 0.875rem",
+            marginBottom: "2.5rem",
+          }}>
+            <span style={{
+              fontFamily: "'IBM Plex Mono', monospace", fontSize: "0.6rem",
+              letterSpacing: "0.14em", color: "#B8BCC2", textTransform: "uppercase",
+            }}>{tx.badge}</span>
+            <div style={{ width: "1px", height: "10px", background: "rgba(242,101,34,0.35)" }} />
+            <div style={{ display: "flex", alignItems: "center", gap: "0.375rem" }}>
+              <div style={{ width: "5px", height: "5px", borderRadius: "50%", background: "#F26522",
+                boxShadow: "0 0 8px rgba(242,101,34,0.7)", flexShrink: 0 }} />
+              <span style={{
+                fontFamily: "'IBM Plex Mono', monospace", fontSize: "0.6rem",
+                letterSpacing: "0.14em", color: "#F26522", textTransform: "uppercase",
+              }}>{tx.badgeDot}</span>
+            </div>
           </div>
 
           {/* Headline */}
-          <h1
-            className="hero-headline text-balance fade-up"
-            style={{ marginBottom: "2rem", animationDelay: "0.18s" }}
-          >
-            {tx.headline}
+          <h1 className="fade-up" style={{
+            fontFamily: "'Inter', system-ui, sans-serif",
+            fontSize: "clamp(2.5rem, 6.5vw, 5rem)",
+            fontWeight: 700,
+            letterSpacing: "-0.035em",
+            lineHeight: 1.05,
+            color: "#F2F2F2",
+            marginBottom: "1.75rem",
+            transitionDelay: "0.1s",
+            textWrap: "balance",
+          }}>
+            {tx.headline1}<br />
+            <span style={{
+              background: "linear-gradient(135deg, #F26522 0%, #FF9A5C 50%, #F26522 100%)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+              backgroundClip: "text",
+            }}>{tx.headline2}</span><br />
+            {tx.headline3}
           </h1>
 
-          {/* Subheadline — +24% spacing from headline */}
-          <p
-            className="body-copy text-balance fade-up"
-            style={{
-              maxWidth: "560px",
-              marginBottom: "3.25rem", /* +16–20% from sub to CTA */
-              lineHeight: "1.8",
-              fontSize: "1.0625rem",
-              animationDelay: "0.3s",
-            }}
-          >
+          {/* Sub */}
+          <p className="fade-up" style={{
+            fontFamily: "'Inter', system-ui, sans-serif",
+            fontSize: "clamp(1rem, 1.8vw, 1.2rem)",
+            color: "#9CA3AF",
+            lineHeight: "1.75",
+            maxWidth: "600px",
+            margin: "0 auto 2.75rem",
+            transitionDelay: "0.18s",
+          }}>
             {tx.sub}
           </p>
 
-          {/* CTA */}
-          <div className="fade-up" style={{ animationDelay: "0.42s" }}>
-            <a href="#demo" className="btn-cta" style={{ fontSize: "0.875rem", padding: "0.75rem 1.625rem" }}>
+          {/* CTA button */}
+          <div className="fade-up" style={{ marginBottom: "1.75rem", transitionDelay: "0.26s" }}>
+            <a
+              href="https://calendly.com/arthur-renck3/book-demo"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                display: "inline-flex", alignItems: "center", gap: "0.625rem",
+                padding: "1rem 2.25rem",
+                background: "#F26522",
+                color: "#fff",
+                fontFamily: "'Inter', system-ui, sans-serif",
+                fontSize: "1rem",
+                fontWeight: 600,
+                letterSpacing: "-0.01em",
+                borderRadius: "8px",
+                textDecoration: "none",
+                boxShadow: "0 0 40px rgba(242,101,34,0.35), 0 4px 20px rgba(242,101,34,0.25)",
+                transition: "background 0.18s, box-shadow 0.18s, transform 0.14s",
+              }}
+              onMouseEnter={e => {
+                (e.currentTarget as HTMLElement).style.background = "#FF7A1A";
+                (e.currentTarget as HTMLElement).style.boxShadow = "0 0 60px rgba(242,101,34,0.5), 0 6px 28px rgba(242,101,34,0.35)";
+                (e.currentTarget as HTMLElement).style.transform = "translateY(-2px)";
+              }}
+              onMouseLeave={e => {
+                (e.currentTarget as HTMLElement).style.background = "#F26522";
+                (e.currentTarget as HTMLElement).style.boxShadow = "0 0 40px rgba(242,101,34,0.35), 0 4px 20px rgba(242,101,34,0.25)";
+                (e.currentTarget as HTMLElement).style.transform = "translateY(0)";
+              }}
+            >
               {tx.cta}
-              <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-                <path d="M3 7H11M11 7L8 4M11 7L8 10" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
             </a>
           </div>
 
+          {/* Trust badges */}
+          <div className="fade-up" style={{
+            display: "flex", flexWrap: "wrap", justifyContent: "center", gap: "0.5rem 1.75rem",
+            marginBottom: "5rem",
+            transitionDelay: "0.34s",
+          }}>
+            {tx.trust.map(t => (
+              <div key={t} style={{ display: "flex", alignItems: "center", gap: "0.4rem" }}>
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                  <circle cx="7" cy="7" r="6.5" fill="rgba(16,185,129,0.15)" stroke="rgba(16,185,129,0.4)" strokeWidth="0.8"/>
+                  <path d="M4.5 7L6.5 9L9.5 5.5" stroke="#10B981" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+                <span style={{
+                  fontFamily: "'Inter', system-ui, sans-serif",
+                  fontSize: "0.8125rem",
+                  color: "#6B7280",
+                }}>{t}</span>
+              </div>
+            ))}
+          </div>
+
           {/* Metrics row */}
-          <div
-            className="fade-up"
-            style={{
-              marginTop: "5rem",
-              paddingTop: "2.5rem",
-              borderTop: "1px solid #1E2024",
-              display: "flex",
-              flexWrap: "wrap",
-              gap: "2.5rem 4rem",
-              animationDelay: "0.56s",
-            }}
-          >
+          <div className="fade-up" style={{
+            paddingTop: "2.5rem",
+            borderTop: "1px solid #1E2024",
+            display: "flex",
+            flexWrap: "wrap",
+            justifyContent: "center",
+            gap: "2.5rem 5rem",
+            transitionDelay: "0.44s",
+          }}>
             {tx.metrics.map(m => (
-              <div key={m.label} style={{ display: "flex", flexDirection: "column", gap: "0.4rem" }}>
+              <div key={m.label} style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "0.4rem" }}>
                 <span style={{
                   fontFamily: "'IBM Plex Mono', monospace",
-                  fontSize: "1.375rem",
+                  fontSize: "clamp(1.25rem, 2.5vw, 1.625rem)",
                   fontWeight: 300,
                   color: "#F2F2F2",
                   letterSpacing: "-0.02em",
@@ -146,27 +243,35 @@ export default function Hero({ lang = "pt" }: { lang?: Lang }) {
                 </span>
                 <span style={{
                   fontFamily: "'IBM Plex Mono', monospace",
-                  fontSize: "0.625rem",
+                  fontSize: "0.6rem",
                   letterSpacing: "0.11em",
                   textTransform: "uppercase",
-                  color: "#6B7280",
+                  color: "#4B5563",
                 }}>
                   {m.label}
                 </span>
               </div>
             ))}
           </div>
+
         </div>
       </div>
 
+      {/* Bottom fade into next section */}
+      <div style={{
+        position: "absolute", bottom: 0, left: 0, right: 0, height: "200px",
+        background: "linear-gradient(to bottom, transparent, #111214)",
+        pointerEvents: "none",
+      }} aria-hidden="true" />
+
       {/* Scroll hint */}
       <div style={{
-        position: "absolute", bottom: "2.5rem", left: "50%", transform: "translateX(-50%)",
+        position: "absolute", bottom: "2rem", left: "50%", transform: "translateX(-50%)",
         display: "flex", flexDirection: "column", alignItems: "center", gap: "0.5rem",
-        opacity: 0.22,
+        opacity: 0.2, zIndex: 5,
       }} aria-hidden="true">
         <span style={{ fontFamily: "'IBM Plex Mono', monospace", fontSize: "0.55rem", letterSpacing: "0.14em", color: "#B8BCC2" }}>SCROLL</span>
-        <div style={{ width: "1px", height: "32px", background: "linear-gradient(to bottom, #B8BCC2, transparent)" }} />
+        <div style={{ width: "1px", height: "28px", background: "linear-gradient(to bottom, #B8BCC2, transparent)" }} />
       </div>
     </section>
   );

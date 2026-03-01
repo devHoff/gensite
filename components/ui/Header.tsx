@@ -1,11 +1,12 @@
-"use client";
+﻿"use client";
 import { useState, useEffect } from "react";
 import Image from "next/image";
 
-/* ── translations ── */
+const DEMO_URL = "https://calendly.com/arthur-renck3/book-demo";
+
 const t = {
-  pt: { solutions: "Soluções", architecture: "Arquitetura", impl: "Implementações", company: "Empresa", cta: "Agendar Demo" },
-  en: { solutions: "Solutions", architecture: "Architecture", impl: "Implementations", company: "Company", cta: "Schedule Demo" },
+  pt: { solutions: "Soluções", architecture: "Depoimentos", impl: "Plano", company: "Empresa", cta: "Agendar Demo" },
+  en: { solutions: "Solutions", architecture: "Testimonials", impl: "Plan", company: "Company", cta: "Book Demo" },
 };
 
 type Lang = "pt" | "en";
@@ -16,8 +17,8 @@ interface HeaderProps {
 }
 
 export default function Header({ lang, setLang }: HeaderProps) {
-  const [scrolled, setScrolled]   = useState(false);
-  const [menuOpen, setMenuOpen]   = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
   const tx = t[lang];
 
   useEffect(() => {
@@ -27,54 +28,39 @@ export default function Header({ lang, setLang }: HeaderProps) {
   }, []);
 
   const navItems = [
-    { label: tx.solutions,    href: "#solucoes"     },
-    { label: tx.architecture, href: "#arquitetura"  },
-    { label: tx.impl,         href: "#implementacoes" },
-    { label: tx.company,      href: "#empresa"      },
+    { label: tx.solutions, href: "#solucoes" },
+    { label: tx.architecture, href: "#arquitetura" },
+    { label: tx.impl, href: "#implementacoes" },
+    { label: tx.company, href: "#empresa" },
   ];
 
   return (
     <header className={`site-header ${scrolled ? "scrolled" : "top"}`}>
       <div className="site-container w-full">
         <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", height: "64px" }}>
-
-          {/* ── Logo ── */}
           <a href="#hero" style={{ display: "flex", alignItems: "center", textDecoration: "none" }} aria-label="AKIRAL">
-            <Image
-              src="/logo.png"
-              alt="AKIRAL"
-              width={110}
-              height={48}
-              style={{ height: "32px", width: "auto", objectFit: "contain" }}
-              priority
-            />
+            <Image src="/logo.png" alt="AKIRAL" width={110} height={48} style={{ height: "32px", width: "auto", objectFit: "contain" }} priority />
           </a>
 
-          {/* ── Desktop nav ── */}
           <nav style={{ display: "flex", alignItems: "center", gap: "2rem" }} className="hidden-mobile">
-            {navItems.map(item => (
-              <a key={item.label} href={item.href} className="nav-link">{item.label}</a>
-            ))}
+            {navItems.map(item => <a key={item.label} href={item.href} className="nav-link">{item.label}</a>)}
           </nav>
 
-          {/* ── Right cluster: lang + CTA ── */}
           <div style={{ display: "flex", alignItems: "center", gap: "1.25rem" }}>
-            {/* Language switcher */}
             <div style={{ display: "flex", alignItems: "center", gap: "0.2rem" }} className="hidden-mobile">
               <button className={`lang-btn${lang === "pt" ? " active" : ""}`} onClick={() => setLang("pt")}>PT</button>
               <span className="lang-sep">|</span>
               <button className={`lang-btn${lang === "en" ? " active" : ""}`} onClick={() => setLang("en")}>EN</button>
             </div>
 
-            <a href="#demo" className="btn-cta hidden-mobile" style={{ padding: "0.55rem 1.125rem", fontSize: "0.8rem" }}>
+            <a href={DEMO_URL} target="_blank" rel="noopener noreferrer" className="btn-cta hidden-mobile" style={{ padding: "0.55rem 1.125rem", fontSize: "0.8rem" }}>
               {tx.cta}
             </a>
 
-            {/* Mobile hamburger */}
             <button
               onClick={() => setMenuOpen(!menuOpen)}
               aria-label="Menu"
-              style={{ display: "none", flexDirection: "column", gap: "5px", background: "none", border: "none", cursor: "pointer", padding: "6px" }}
+              style={{ display: "none", flexDirection: "column", gap: "5px", background: "none", border: "none", cursor: "pointer", padding: "6px", marginLeft: "auto", marginRight: "-2px" }}
               className="mobile-only"
             >
               <span style={{ display: "block", width: "20px", height: "1px", background: "#B8BCC2", transition: "all 0.2s", transform: menuOpen ? "translateY(6px) rotate(45deg)" : "none" }} />
@@ -85,24 +71,15 @@ export default function Header({ lang, setLang }: HeaderProps) {
         </div>
       </div>
 
-      {/* Mobile menu */}
-      <div style={{
-        maxHeight: menuOpen ? "360px" : "0",
-        overflow: "hidden",
-        transition: "max-height 0.3s ease",
-        borderTop: menuOpen ? "1px solid #1E2024" : "1px solid transparent",
-        background: "rgba(10,11,13,0.96)",
-      }} className="mobile-only-block">
+      <div style={{ maxHeight: menuOpen ? "360px" : "0", overflow: "hidden", transition: "max-height 0.3s ease", borderTop: menuOpen ? "1px solid #1E2024" : "1px solid transparent", background: "rgba(10,11,13,0.96)" }} className="mobile-only-block">
         <div className="site-container" style={{ paddingTop: "1.5rem", paddingBottom: "1.5rem", display: "flex", flexDirection: "column", gap: "1.25rem" }}>
-          {navItems.map(item => (
-            <a key={item.label} href={item.href} className="nav-link" style={{ fontSize: "1rem" }} onClick={() => setMenuOpen(false)}>{item.label}</a>
-          ))}
+          {navItems.map(item => <a key={item.label} href={item.href} className="nav-link" style={{ fontSize: "1rem" }} onClick={() => setMenuOpen(false)}>{item.label}</a>)}
           <div style={{ display: "flex", alignItems: "center", gap: "0.3rem", paddingTop: "0.25rem" }}>
             <button className={`lang-btn${lang === "pt" ? " active" : ""}`} onClick={() => setLang("pt")}>PT</button>
             <span className="lang-sep">|</span>
             <button className={`lang-btn${lang === "en" ? " active" : ""}`} onClick={() => setLang("en")}>EN</button>
           </div>
-          <a href="#demo" className="btn-cta" style={{ textAlign: "center", justifyContent: "center", marginTop: "0.5rem" }} onClick={() => setMenuOpen(false)}>
+          <a href={DEMO_URL} target="_blank" rel="noopener noreferrer" className="btn-cta" style={{ textAlign: "center", justifyContent: "center", marginTop: "0.5rem" }} onClick={() => setMenuOpen(false)}>
             {tx.cta}
           </a>
         </div>

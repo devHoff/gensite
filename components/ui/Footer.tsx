@@ -1,7 +1,9 @@
-"use client";
+﻿"use client";
 import Image from "next/image";
 
 type Lang = "pt" | "en";
+
+const BOOK_DEMO_URL = "https://calendly.com/arthur-renck3/book-demo";
 
 const copy = {
   pt: {
@@ -10,24 +12,24 @@ const copy = {
       {
         heading: "Company",
         links: [
-          { label: "About Us",           href: "#empresa"   },
-          { label: "Terms & Privacy",     href: "#"          },
-          { label: "Your privacy rights", href: "#"          },
+          { label: "About Us", href: "#empresa" },
+          { label: "Terms & Privacy", href: "#" },
+          { label: "Your privacy rights", href: "#" },
         ],
       },
       {
         heading: "Akiral for",
         links: [
-          { label: "Enterprise",     href: "#solucoes"      },
-          { label: "Small Business", href: "#solucoes"      },
-          { label: "Personal",       href: "#solucoes"      },
+          { label: "Enterprise", href: "#solucoes" },
+          { label: "Small Business", href: "#solucoes" },
+          { label: "Personal", href: "#solucoes" },
         ],
       },
       {
         heading: "Resources",
         links: [
-          { label: "Help Center",       href: "#"            },
-          { label: "Partner programs",  href: "#"            },
+          { label: "Help Center", href: "#" },
+          { label: "Partner programs", href: "#" },
         ],
       },
     ],
@@ -40,24 +42,24 @@ const copy = {
       {
         heading: "Company",
         links: [
-          { label: "About Us",           href: "#empresa"   },
-          { label: "Terms & Privacy",     href: "#"          },
-          { label: "Your privacy rights", href: "#"          },
+          { label: "About Us", href: "#empresa" },
+          { label: "Terms & Privacy", href: "#" },
+          { label: "Your privacy rights", href: "#" },
         ],
       },
       {
         heading: "Akiral for",
         links: [
-          { label: "Enterprise",     href: "#solucoes"      },
-          { label: "Small Business", href: "#solucoes"      },
-          { label: "Personal",       href: "#solucoes"      },
+          { label: "Enterprise", href: "#solucoes" },
+          { label: "Small Business", href: "#solucoes" },
+          { label: "Personal", href: "#solucoes" },
         ],
       },
       {
         heading: "Resources",
         links: [
-          { label: "Help Center",      href: "#"             },
-          { label: "Partner programs", href: "#"             },
+          { label: "Help Center", href: "#" },
+          { label: "Partner programs", href: "#" },
         ],
       },
     ],
@@ -71,19 +73,9 @@ export default function Footer({ lang = "pt" }: { lang?: Lang }) {
   const year = new Date().getFullYear();
 
   return (
-    <footer
-      id="empresa"
-      style={{
-        background: "#0A0B0D",
-        borderTop: "1px solid #16181C",
-      }}
-    >
-      {/* Main */}
+    <footer id="empresa" style={{ background: "#0A0B0D", borderTop: "1px solid #16181C" }}>
       <div className="site-container" style={{ padding: "5rem 1.5rem 4rem" }}>
-
-        {/* Brand row */}
         <div style={{ textAlign: "center", marginBottom: "4rem" }}>
-          {/* Logo */}
           <div style={{ display: "inline-flex", alignItems: "center", marginBottom: "1rem" }}>
             <Image
               src="/logo.png"
@@ -103,7 +95,6 @@ export default function Footer({ lang = "pt" }: { lang?: Lang }) {
           </p>
         </div>
 
-        {/* Link columns — centered */}
         <div style={{
           display: "flex",
           justifyContent: "center",
@@ -134,10 +125,8 @@ export default function Footer({ lang = "pt" }: { lang?: Lang }) {
           ))}
         </div>
 
-        {/* Divider */}
         <div style={{ width: "100%", height: "1px", background: "#16181C", marginBottom: "2.5rem" }} />
 
-        {/* Bottom bar */}
         <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", justifyContent: "center", gap: "1.25rem 2.5rem" }}>
           <span style={{
             fontFamily: "'IBM Plex Mono', monospace",
@@ -150,7 +139,7 @@ export default function Footer({ lang = "pt" }: { lang?: Lang }) {
 
           <div style={{ width: "1px", height: "12px", background: "#1E2024" }} />
 
-          <a href="#demo" style={{
+          <a href={BOOK_DEMO_URL} target="_blank" rel="noopener noreferrer" style={{
             fontFamily: "'Inter', system-ui, sans-serif",
             fontSize: "0.75rem",
             color: "#3A3D42",
@@ -177,7 +166,6 @@ export default function Footer({ lang = "pt" }: { lang?: Lang }) {
             </span>
           </div>
         </div>
-
       </div>
     </footer>
   );

@@ -1,45 +1,55 @@
-"use client";
-import { useEffect, useRef } from "react";
+﻿"use client";
+import { useEffect, useRef, useState } from "react";
 
 type Lang = "pt" | "en";
 
-const copy = {
+const BOOK_DEMO_URL = "https://calendly.com/arthur-renck3/book-demo";
+
+type Step = { number: string; title: string; text: string };
+
+const copy: Record<Lang, { label: string; headline: string; sub: string; steps: Step[]; next: string; cta: string }> = {
   pt: {
-    label: "Camadas de Automação",
-    headline: "Quatro camadas. Um sistema.",
-    sub: "Independentes por design. Coesas por arquitetura.",
-    status: { systems: "40+ sistemas integrados", layers: "4 camadas ativas", uptime: "99.98% uptime médio" },
-    layers: [
-      { index: "01", title: "Orquestração de Sistemas",  badge: "CRITICAL", desc: "Coordenação de sistemas heterogêneos através de um plano de controle unificado. Estado consistente. Execução determinística.", tags: ["Distributed Coordination","State Management","Circuit Breaker"] },
-      { index: "02", title: "Automação Inteligente",     badge: "CRITICAL", desc: "Substituição de intervenção humana em fluxos operacionais. Decisão baseada em dados. Ação com rastreabilidade completa.",   tags: ["Rule-based Execution","ML-assisted Decision","Process Mining"] },
-      { index: "03", title: "Infraestrutura Resiliente", badge: "HIGH",     desc: "Fundação tecnológica capaz de absorver falhas, escalar horizontalmente e operar sem degradação.",                           tags: ["Self-healing","Immutable Infra","Multi-region","SLA 99.99%"] },
-      { index: "04", title: "Inteligência Operacional",  badge: "HIGH",     desc: "Observabilidade profunda em cada camada. Correlação de eventos. Diagnóstico proativo antes da falha.",                       tags: ["Full Observability","Predictive Alerting","Log Correlation"] },
+    label: "Soluções Anteriores",
+    headline: "Como construímos cada projeto em produção.",
+    sub: "Fluxo simples e claro: 1, 2, 3, e depois escala.",
+    steps: [
+      { number: "1", title: "Diagnóstico", text: "Entendemos o gargalo real do negócio." },
+      { number: "2", title: "Implementação", text: "Conectamos canais, regras e automações." },
+      { number: "3", title: "Otimização", text: "Ajustamos métricas para aumentar resultado." },
     ],
+    next: "Sua empresa pode ser a próxima.",
+    cta: "Book Demo",
   },
   en: {
-    label: "Automation Layers",
-    headline: "Four layers. One system.",
-    sub: "Independent by design. Cohesive by architecture.",
-    status: { systems: "40+ integrated systems", layers: "4 active layers", uptime: "99.98% avg uptime" },
-    layers: [
-      { index: "01", title: "System Orchestration",    badge: "CRITICAL", desc: "Coordination of heterogeneous systems through a unified control plane. Consistent state. Deterministic execution.", tags: ["Distributed Coordination","State Management","Circuit Breaker"] },
-      { index: "02", title: "Intelligent Automation",  badge: "CRITICAL", desc: "Replacement of human intervention in operational flows. Data-driven decision. Action with full traceability.",       tags: ["Rule-based Execution","ML-assisted Decision","Process Mining"] },
-      { index: "03", title: "Resilient Infrastructure",badge: "HIGH",     desc: "Technological foundation capable of absorbing failures, scaling horizontally and operating without degradation.",       tags: ["Self-healing","Immutable Infra","Multi-region","SLA 99.99%"] },
-      { index: "04", title: "Operational Intelligence",badge: "HIGH",     desc: "Deep observability across every layer. Event correlation. Proactive diagnosis before failure materialises.",         tags: ["Full Observability","Predictive Alerting","Log Correlation"] },
+    label: "Previous Solutions",
+    headline: "How we build each project in production.",
+    sub: "Simple and clear flow: 1, 2, 3, then scale.",
+    steps: [
+      { number: "1", title: "Diagnosis", text: "We identify the real bottleneck." },
+      { number: "2", title: "Implementation", text: "We connect channels, rules and automations." },
+      { number: "3", title: "Optimization", text: "We tune metrics for outcomes." },
     ],
+    next: "Your company could be the next one.",
+    cta: "Book Demo",
   },
 };
 
 export default function AutomationLayers({ lang = "pt" }: { lang?: Lang }) {
   const tx = copy[lang];
   const ref = useRef<HTMLElement>(null);
+  const [revealNext, setRevealNext] = useState(false);
 
   useEffect(() => {
     const els = ref.current?.querySelectorAll(".fade-up");
     if (!els) return;
     const obs = new IntersectionObserver(
-      entries => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add("in"); }),
-      { threshold: 0.06, rootMargin: "0px 0px -40px 0px" }
+      entries => entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add("in");
+          setTimeout(() => setRevealNext(true), 650);
+        }
+      }),
+      { threshold: 0.2, rootMargin: "0px 0px -20px 0px" }
     );
     els.forEach(el => obs.observe(el));
     return () => obs.disconnect();
@@ -48,81 +58,51 @@ export default function AutomationLayers({ lang = "pt" }: { lang?: Lang }) {
   return (
     <section ref={ref} id="solucoes" className="section-wrap" style={{ background: "#111214", borderTop: "1px solid #1E2024" }}>
       <div className="site-container">
-
-        {/* Header */}
-        <div style={{ maxWidth: "680px", marginBottom: "4rem" }}>
-          <div className="fade-up" style={{ display: "flex", alignItems: "center", gap: "0.75rem", marginBottom: "1.75rem" }}>
+        <div style={{ maxWidth: "760px", marginBottom: "3rem" }}>
+          <div className="fade-up" style={{ display: "flex", alignItems: "center", gap: "0.75rem", marginBottom: "1.2rem" }}>
             <span className="section-label">{tx.label}</span>
             <div style={{ width: "40px", height: "1px", background: "#1E2024" }} />
           </div>
-          <h2 className="section-headline fade-up" style={{ marginBottom: "0.875rem", transitionDelay: "0.06s" }}>
-            {tx.headline}
-          </h2>
-          <p className="body-copy fade-up" style={{ transitionDelay: "0.1s" }}>{tx.sub}</p>
+          <h2 className="section-headline fade-up" style={{ marginBottom: "0.7rem" }}>{tx.headline}</h2>
+          <p className="body-copy fade-up">{tx.sub}</p>
         </div>
 
-        {/* Layers list */}
-        <div className="fade-up" style={{ borderTop: "1px solid #1E2024", transitionDelay: "0.14s" }}>
-          {tx.layers.map((layer) => (
-            <div key={layer.index} className="impl-row">
-              <div style={{ display: "flex", gap: "1.5rem", alignItems: "flex-start" }}>
-
-                {/* Index */}
-                <span style={{ fontFamily: "'IBM Plex Mono', monospace", fontSize: "0.6rem", color: "#2A2D32", letterSpacing: "0.06em", marginTop: "0.25rem", flexShrink: 0, width: "1.5rem" }}>
-                  {layer.index}
-                </span>
-
-                {/* V-rule */}
-                <div style={{ width: "1px", alignSelf: "stretch", background: "#1E2024", flexShrink: 0 }} />
-
-                {/* Content */}
-                <div style={{ flex: 1 }}>
-                  <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: "0.625rem", marginBottom: "0.625rem" }}>
-                    <h3 style={{ fontFamily: "'Inter', system-ui, sans-serif", fontSize: "0.9375rem", fontWeight: 500, color: "#F2F2F2", letterSpacing: "-0.01em", margin: 0 }}>
-                      {layer.title}
-                    </h3>
-                    <span className="complexity-badge">{layer.badge}</span>
-                  </div>
-
-                  <p className="body-sm" style={{ marginBottom: "1rem", maxWidth: "560px", color: "#6B7280", lineHeight: "1.75" }}>
-                    {layer.desc}
-                  </p>
-
-                  <div style={{ display: "flex", flexWrap: "wrap", gap: "0.375rem" }}>
-                    {layer.tags.map(t => <span key={t} className="tag-pill">{t}</span>)}
-                  </div>
-                </div>
-
-              </div>
-            </div>
-          ))}
-        </div>
-
-        {/* Status bar */}
         <div className="fade-up" style={{
-          marginTop: "2.5rem",
-          padding: "1.25rem 1.5rem",
-          background: "#0D0F11",
+          position: "relative",
+          minHeight: "460px",
           border: "1px solid #1E2024",
-          borderRadius: "2px",
-          display: "flex",
-          flexWrap: "wrap",
-          alignItems: "center",
-          justifyContent: "space-between",
-          gap: "1rem",
-          transitionDelay: "0.2s",
+          background: "#0D0F11",
+          overflow: "hidden",
+          padding: "1rem",
         }}>
-          <div style={{ display: "flex", alignItems: "center", gap: "0.625rem" }}>
-            <div className="status-dot" />
-            <span className="mono-sm" style={{ letterSpacing: "0.08em" }}>SISTEMA OPERACIONAL</span>
+          <svg viewBox="0 0 1000 460" preserveAspectRatio="none" aria-hidden="true" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", opacity: 0.5 }}>
+            <path fill="none" stroke="rgba(184,188,194,0.42)" strokeWidth="1.3" strokeDasharray="5 12" d="M160,80 C350,80 420,160 520,220 C610,275 610,350 520,380 C430,410 340,370 200,350" />
+            <path fill="none" stroke="rgba(184,188,194,0.3)" strokeWidth="1.3" strokeDasharray="5 12" d="M520,220 C670,200 760,240 860,300" />
+          </svg>
+
+          <div style={{ position: "absolute", top: "56px", left: "42px", display: "flex", gap: "0.8rem", alignItems: "center" }}>
+            <div style={{ width: "60px", height: "60px", border: "2px solid #F26522", display: "grid", placeItems: "center", color: "#F2F2F2", fontSize: "1.75rem" }}>1</div>
+            <div><h3 style={{ marginBottom: "0.3rem" }}>{tx.steps[0].title}</h3><p className="body-sm">{tx.steps[0].text}</p></div>
           </div>
-          <div style={{ display: "flex", flexWrap: "wrap", gap: "1.5rem 3rem" }}>
-            {[tx.status.systems, tx.status.layers, tx.status.uptime].map(s => (
-              <span key={s} style={{ fontFamily: "'IBM Plex Mono', monospace", fontSize: "0.6875rem", color: "#4B5563" }}>{s}</span>
-            ))}
+
+          <div style={{ position: "absolute", top: "180px", left: "48%", transform: "translateX(-50%)", display: "flex", gap: "0.8rem", alignItems: "center" }}>
+            <div style={{ width: "60px", height: "60px", border: "2px solid #F26522", display: "grid", placeItems: "center", color: "#F2F2F2", fontSize: "1.75rem" }}>2</div>
+            <div><h3 style={{ marginBottom: "0.3rem" }}>{tx.steps[1].title}</h3><p className="body-sm">{tx.steps[1].text}</p></div>
+          </div>
+
+          <div style={{ position: "absolute", top: "320px", left: "42px", display: "flex", gap: "0.8rem", alignItems: "center" }}>
+            <div style={{ width: "60px", height: "60px", border: "2px solid #F26522", display: "grid", placeItems: "center", color: "#F2F2F2", fontSize: "1.75rem" }}>3</div>
+            <div><h3 style={{ marginBottom: "0.3rem" }}>{tx.steps[2].title}</h3><p className="body-sm">{tx.steps[2].text}</p></div>
+          </div>
+
+          <div style={{ position: "absolute", right: "42px", top: "286px", display: "flex", alignItems: "center", gap: "0.8rem" }}>
+            <div style={{ width: "62px", height: "62px", borderRadius: "50%", border: "1px solid rgba(242,101,34,0.7)", display: "grid", placeItems: "center", color: "#F26522", fontSize: "2rem" }}>?</div>
+            <div style={{ opacity: revealNext ? 1 : 0, transform: revealNext ? "translateY(0)" : "translateY(8px)", transition: "all 0.5s ease" }}>
+              <p style={{ marginBottom: "0.7rem" }}>{tx.next}</p>
+              <a href={BOOK_DEMO_URL} target="_blank" rel="noopener noreferrer" className="btn-cta">{tx.cta}</a>
+            </div>
           </div>
         </div>
-
       </div>
     </section>
   );

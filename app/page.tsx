@@ -1,15 +1,15 @@
 "use client";
 import { useState } from "react";
-import Header          from "@/components/ui/Header";
-import Hero            from "@/components/sections/Hero";
-import Results         from "@/components/sections/Results";
-import Architecture    from "@/components/sections/Architecture";
-import AutomationLayers from "@/components/sections/AutomationLayers";
-import Implementations from "@/components/sections/Implementations";
-import DemoSection     from "@/components/sections/DemoSection";
-import Footer          from "@/components/ui/Footer";
+import Header       from "@/components/ui/Header";
+import Hero         from "@/components/sections/Hero";
+import Resultados   from "@/components/sections/Resultados";
+import Solucoes     from "@/components/sections/Solucoes";
+import Depoimentos  from "@/components/sections/Depoimentos";
+import ComoFunciona from "@/components/sections/ComoFunciona";
+import Demo         from "@/components/sections/Demo";
+import Footer       from "@/components/ui/Footer";
 
-type Lang = "pt" | "en";
+export type Lang = "pt" | "en";
 
 export default function Home() {
   const [lang, setLang] = useState<Lang>("pt");
@@ -17,13 +17,13 @@ export default function Home() {
   return (
     <main>
       <Header lang={lang} setLang={setLang} />
-      <Hero            lang={lang} />
-      <Results         lang={lang} />
-      <Architecture    lang={lang} />
-      <AutomationLayers lang={lang} />
-      <Implementations  lang={lang} />
-      <DemoSection     lang={lang} />
-      <Footer          lang={lang} />
+      <Hero         lang={lang} />
+      <Resultados   lang={lang} />
+      <Solucoes     lang={lang} />
+      <Depoimentos  lang={lang} />
+      <ComoFunciona lang={lang} />
+      <Demo         lang={lang} />
+      <Footer       lang={lang} />
     </main>
   );
 }

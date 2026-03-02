@@ -1,80 +1,59 @@
-﻿"use client";
+"use client";
 import Image from "next/image";
+import type { Lang } from "@/app/page";
 
-type Lang = "pt" | "en";
-
-const BOOK_DEMO_URL = "https://calendly.com/arthur-renck3/book-demo";
-
-const copy = {
+const t = {
   pt: {
-    tagline: "Enterprise Technological Infrastructure",
-    columns: [
-      {
-        heading: "Company",
-        links: [
-          { label: "About Us", href: "#empresa" },
-          { label: "Terms & Privacy", href: "#" },
-          { label: "Your privacy rights", href: "#" },
-        ],
-      },
-      {
-        heading: "Akiral for",
-        links: [
-          { label: "Enterprise", href: "#solucoes" },
-          { label: "Small Business", href: "#solucoes" },
-          { label: "Personal", href: "#solucoes" },
-        ],
-      },
-      {
-        heading: "Resources",
-        links: [
-          { label: "Help Center", href: "#" },
-          { label: "Partner programs", href: "#" },
-        ],
-      },
+    scheduleDemo: "Agendar Demo",
+    systems: "SISTEMAS OPERACIONAIS",
+    company: "Company",
+    companyLinks: [
+      { label: "Sobre Nós", href: "#empresa" },
+      { label: "Termos & Privacidade", href: "#" },
+      { label: "Seus direitos de privacidade", href: "#" },
     ],
-    demo: "Agendar Demo",
-    copy: "Enterprise Technological Infrastructure.",
+    akiralFor: "Akiral para",
+    akiralLinks: [
+      { label: "Enterprise", href: "#solucoes" },
+      { label: "Pequenas Empresas", href: "#solucoes" },
+      { label: "Pessoal", href: "#solucoes" },
+    ],
+    resources: "Recursos",
+    resourceLinks: [
+      { label: "Central de Ajuda", href: "#" },
+      { label: "Programas de parceiros", href: "#" },
+    ],
   },
   en: {
-    tagline: "Enterprise Technological Infrastructure",
-    columns: [
-      {
-        heading: "Company",
-        links: [
-          { label: "About Us", href: "#empresa" },
-          { label: "Terms & Privacy", href: "#" },
-          { label: "Your privacy rights", href: "#" },
-        ],
-      },
-      {
-        heading: "Akiral for",
-        links: [
-          { label: "Enterprise", href: "#solucoes" },
-          { label: "Small Business", href: "#solucoes" },
-          { label: "Personal", href: "#solucoes" },
-        ],
-      },
-      {
-        heading: "Resources",
-        links: [
-          { label: "Help Center", href: "#" },
-          { label: "Partner programs", href: "#" },
-        ],
-      },
+    scheduleDemo: "Book Demo",
+    systems: "SYSTEMS OPERATIONAL",
+    company: "Company",
+    companyLinks: [
+      { label: "About Us", href: "#empresa" },
+      { label: "Terms & Privacy", href: "#" },
+      { label: "Your privacy rights", href: "#" },
     ],
-    demo: "Schedule Demo",
-    copy: "Enterprise Technological Infrastructure.",
+    akiralFor: "Akiral for",
+    akiralLinks: [
+      { label: "Enterprise", href: "#solucoes" },
+      { label: "Small Business", href: "#solucoes" },
+      { label: "Personal", href: "#solucoes" },
+    ],
+    resources: "Resources",
+    resourceLinks: [
+      { label: "Help Center", href: "#" },
+      { label: "Partner programs", href: "#" },
+    ],
   },
 };
 
-export default function Footer({ lang = "pt" }: { lang?: Lang }) {
-  const tx = copy[lang];
-  const year = new Date().getFullYear();
+export default function Footer({ lang }: { lang: Lang }) {
+  const tx = t[lang];
 
   return (
     <footer id="empresa" style={{ background: "#0A0B0D", borderTop: "1px solid #16181C" }}>
       <div className="site-container" style={{ padding: "5rem 1.5rem 4rem" }}>
+        {/* Logo + tagline */}
         <div style={{ textAlign: "center", marginBottom: "4rem" }}>
           <div style={{ display: "inline-flex", alignItems: "center", marginBottom: "1rem" }}>
             <Image
@@ -85,84 +64,59 @@ export default function Footer({ lang = "pt" }: { lang?: Lang }) {
               style={{ height: "28px", width: "auto", objectFit: "contain", opacity: 0.35 }}
             />
           </div>
-          <p style={{
-            fontFamily: "'IBM Plex Mono', monospace",
-            fontSize: "0.6875rem",
-            letterSpacing: "0.06em",
-            color: "#3A3D42",
-          }}>
-            {tx.tagline}
+          <p style={{ fontFamily: "'IBM Plex Mono', monospace", fontSize: "0.6875rem", letterSpacing: "0.06em", color: "#3A3D42" }}>
+            Enterprise Technological Infrastructure
           </p>
         </div>
 
-        <div style={{
-          display: "flex",
-          justifyContent: "center",
-          flexWrap: "wrap",
-          gap: "3rem 6rem",
-          marginBottom: "4rem",
-        }}>
-          {tx.columns.map(col => (
-            <div key={col.heading} style={{ minWidth: "130px" }}>
-              <h4 style={{
-                fontFamily: "'IBM Plex Mono', monospace",
-                fontSize: "0.625rem",
-                letterSpacing: "0.14em",
-                textTransform: "uppercase",
-                color: "#3A3D42",
-                marginBottom: "1.25rem",
-              }}>
-                {col.heading}
-              </h4>
-              <ul style={{ listStyle: "none", padding: 0, display: "flex", flexDirection: "column" }}>
-                {col.links.map(link => (
-                  <li key={link.label}>
-                    <a href={link.href} className="footer-link">{link.label}</a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
+        {/* Links grid */}
+        <div style={{ display: "flex", justifyContent: "center", flexWrap: "wrap", gap: "3rem 6rem", marginBottom: "4rem" }}>
+          <div style={{ minWidth: "130px" }}>
+            <h4 style={{ fontFamily: "'IBM Plex Mono', monospace", fontSize: "0.625rem", letterSpacing: "0.14em", textTransform: "uppercase", color: "#3A3D42", marginBottom: "1.25rem" }}>
+              {tx.company}
+            </h4>
+            <ul style={{ listStyle: "none", padding: 0, display: "flex", flexDirection: "column" }}>
+              {tx.companyLinks.map(l => <li key={l.label}><a href={l.href} className="footer-link">{l.label}</a></li>)}
+            </ul>
+          </div>
+          <div style={{ minWidth: "130px" }}>
+            <h4 style={{ fontFamily: "'IBM Plex Mono', monospace", fontSize: "0.625rem", letterSpacing: "0.14em", textTransform: "uppercase", color: "#3A3D42", marginBottom: "1.25rem" }}>
+              {tx.akiralFor}
+            </h4>
+            <ul style={{ listStyle: "none", padding: 0, display: "flex", flexDirection: "column" }}>
+              {tx.akiralLinks.map(l => <li key={l.label}><a href={l.href} className="footer-link">{l.label}</a></li>)}
+            </ul>
+          </div>
+          <div style={{ minWidth: "130px" }}>
+            <h4 style={{ fontFamily: "'IBM Plex Mono', monospace", fontSize: "0.625rem", letterSpacing: "0.14em", textTransform: "uppercase", color: "#3A3D42", marginBottom: "1.25rem" }}>
+              {tx.resources}
+            </h4>
+            <ul style={{ listStyle: "none", padding: 0, display: "flex", flexDirection: "column" }}>
+              {tx.resourceLinks.map(l => <li key={l.label}><a href={l.href} className="footer-link">{l.label}</a></li>)}
+            </ul>
+          </div>
         </div>
 
+        {/* Divider */}
         <div style={{ width: "100%", height: "1px", background: "#16181C", marginBottom: "2.5rem" }} />
 
+        {/* Bottom bar */}
         <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", justifyContent: "center", gap: "1.25rem 2.5rem" }}>
-          <span style={{
-            fontFamily: "'IBM Plex Mono', monospace",
-            fontSize: "0.625rem",
-            letterSpacing: "0.05em",
-            color: "#2A2D32",
-          }}>
-            © {year} AKIRAL. {tx.copy}
+          <span style={{ fontFamily: "'IBM Plex Mono', monospace", fontSize: "0.625rem", letterSpacing: "0.05em", color: "#2A2D32" }}>
+            © 2026 AKIRAL. Enterprise Technological Infrastructure.
           </span>
-
           <div style={{ width: "1px", height: "12px", background: "#1E2024" }} />
-
-          <a href={BOOK_DEMO_URL} target="_blank" rel="noopener noreferrer" style={{
-            fontFamily: "'Inter', system-ui, sans-serif",
-            fontSize: "0.75rem",
-            color: "#3A3D42",
-            textDecoration: "none",
-            transition: "color 0.14s",
-          }}
-          onMouseEnter={e => (e.currentTarget.style.color = "#6B7280")}
-          onMouseLeave={e => (e.currentTarget.style.color = "#3A3D42")}
+          <a
+            href="#demo"
+            style={{ fontFamily: "'Inter', system-ui, sans-serif", fontSize: "0.75rem", color: "#3A3D42", textDecoration: "none", transition: "color 0.14s" }}
           >
-            {tx.demo}
+            {tx.scheduleDemo}
           </a>
-
           <div style={{ width: "1px", height: "12px", background: "#1E2024" }} />
-
           <div style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
             <div className="status-dot" style={{ width: "5px", height: "5px" }} />
-            <span style={{
-              fontFamily: "'IBM Plex Mono', monospace",
-              fontSize: "0.6rem",
-              letterSpacing: "0.1em",
-              color: "#2A2D32",
-            }}>
-              SISTEMAS OPERACIONAIS
+            <span style={{ fontFamily: "'IBM Plex Mono', monospace", fontSize: "0.6rem", letterSpacing: "0.1em", color: "#2A2D32" }}>
+              {tx.systems}
             </span>
           </div>
         </div>

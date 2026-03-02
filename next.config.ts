@@ -5,6 +5,7 @@ const nextConfig: NextConfig = {
     "http://26.135.254.132:3000",
     "192.168.0.9:3000",
     "192.168.0.9",
+    "*.sandbox.novita.ai",
   ],
   images: {
     remotePatterns: [

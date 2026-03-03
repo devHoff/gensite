@@ -15,10 +15,10 @@ const t = {
     cta: "Agendar Free Demo →",
     trust: ["Sem cartão de crédito", "Onboarding 1-a-1 incluso", "Primeiros resultados em 72h"],
     stats: [
-      { value: "+1M$", label: "Valor Gerado" },
-      { value: "~300%", label: "Mais Respostas" },
+      { value: "5+", label: "Sistemas Desenvolvidos" },
+      { value: "~30%", label: "Mais Respostas" },
       { value: "< 0.2s", label: "Tempo de Resposta" },
-      { value: "+100M", label: "Eventos / Dia" },
+      { value: "24/7", label: "Disponibilidade" },
     ],
   },
   en: {
@@ -31,10 +31,10 @@ const t = {
     cta: "Book Free Demo →",
     trust: ["No credit card required", "1-on-1 onboarding included", "First results in 72h"],
     stats: [
-      { value: "+1M$", label: "Value Generated" },
-      { value: "~308%", label: "More Responses" },
+      { value: "5+", label: "Systems Built" },
+      { value: "~30%", label: "More Responses" },
       { value: "< 0.2s", label: "Response Time" },
-      { value: "+100M", label: "Events / Day" },
+      { value: "24/7", label: "Availability" },
     ],
   },
 };

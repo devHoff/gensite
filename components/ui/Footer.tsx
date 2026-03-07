@@ -8,9 +8,9 @@ const t = {
     systems: "SISTEMAS OPERACIONAIS",
     company: "Company",
     companyLinks: [
-      { label: "Sobre Nós", href: "#empresa" },
-      { label: "Termos & Privacidade", href: "#" },
-      { label: "Seus direitos de privacidade", href: "#" },
+      { label: "Sobre Nós", href: "/sobre-nos" },
+      { label: "Termos & Privacidade", href: "/termos-e-privacidade" },
+      { label: "Seus direitos de privacidade", href: "/seus-direitos-de-privacidade" },
     ],
     akiralFor: "Akiral para",
     akiralLinks: [
@@ -29,9 +29,9 @@ const t = {
     systems: "SYSTEMS OPERATIONAL",
     company: "Company",
     companyLinks: [
-      { label: "About Us", href: "#empresa" },
-      { label: "Terms & Privacy", href: "#" },
-      { label: "Your privacy rights", href: "#" },
+      { label: "About Us", href: "/sobre-nos" },
+      { label: "Terms & Privacy", href: "/termos-e-privacidade" },
+      { label: "Your privacy rights", href: "/seus-direitos-de-privacidade" },
     ],
     akiralFor: "Akiral for",
     akiralLinks: [

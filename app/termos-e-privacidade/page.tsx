@@ -2,9 +2,26 @@ import type { Metadata } from "next";
 import LegalLayout from "@/components/ui/LegalLayout";
 
 export const metadata: Metadata = {
-  title: "Termos & Privacidade — AKIRAL",
+  title: "Termos & Privacidade",
   description:
-    "Termos de Uso e Política de Privacidade da AKIRAL. Saiba como coletamos, utilizamos e protegemos seus dados, em conformidade com a LGPD e o Marco Civil da Internet.",
+    "Termos de Uso e Política de Privacidade da Akiral. Saiba como coletamos, utilizamos e protegemos seus dados, em conformidade com a LGPD e o Marco Civil da Internet.",
+  alternates: {
+    canonical: "https://akiral.com/termos-e-privacidade",
+  },
+  openGraph: {
+    title: "Termos & Privacidade | Akiral",
+    description:
+      "Termos de Uso e Política de Privacidade da Akiral, elaborados em conformidade com a LGPD e o Marco Civil da Internet.",
+    url: "https://akiral.com/termos-e-privacidade",
+    siteName: "Akiral",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Termos & Privacidade | Akiral",
+    description:
+      "Termos de Uso e Política de Privacidade da Akiral, elaborados em conformidade com a LGPD e o Marco Civil da Internet.",
+  },
 };
 
 export default function TermosPrivacidadePage() {
@@ -339,7 +356,7 @@ export default function TermosPrivacidadePage() {
         </p>
         <div className="legal-contact-box">
           <p className="legal-contact-box-title">Canal de Privacidade — Encarregado de Dados</p>
-          <a href="mailto:privacidade@akiral.com" className="legal-contact-email">privacidade@akiral.com</a>
+          <a href="mailto:contact@akiral.com" className="legal-contact-email">contact@akiral.com</a>
           <p className="legal-p" style={{ marginTop: "0.75rem", marginBottom: 0, fontSize: "0.875rem" }}>
             As solicitações serão respondidas no prazo de até <strong>15 (quinze) dias úteis</strong>, contados do recebimento, prorrogáveis quando houver complexidade ou volume que justifique a extensão do prazo, com comunicação ao titular.
           </p>

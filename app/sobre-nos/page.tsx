@@ -2,9 +2,26 @@ import type { Metadata } from "next";
 import LegalLayout from "@/components/ui/LegalLayout";
 
 export const metadata: Metadata = {
-  title: "Sobre Nós — AKIRAL",
+  title: "Sobre Nós",
   description:
-    "Conheça a AKIRAL: empresa de infraestrutura tecnológica especializada em automação de processos, integração de sistemas e soluções digitais para empresas que buscam escala real.",
+    "Conheça a Akiral: empresa de infraestrutura tecnológica especializada em automação de processos, agentes de IA e soluções digitais para empresas que buscam escala real.",
+  alternates: {
+    canonical: "https://akiral.com/sobre-nos",
+  },
+  openGraph: {
+    title: "Sobre Nós | Akiral",
+    description:
+      "Conheça a Akiral: empresa de infraestrutura tecnológica especializada em automação de processos, agentes de IA e soluções digitais para empresas que buscam escala real.",
+    url: "https://akiral.com/sobre-nos",
+    siteName: "Akiral",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Sobre Nós | Akiral",
+    description:
+      "Conheça a Akiral: empresa de infraestrutura tecnológica especializada em automação de processos, agentes de IA e soluções digitais para empresas que buscam escala real.",
+  },
 };
 
 export default function SobreNosPage() {
@@ -182,7 +199,7 @@ export default function SobreNosPage() {
         </p>
         <div className="legal-contact-box">
           <p className="legal-contact-box-title">Contato geral</p>
-          <a href="mailto:contato@akiral.com" className="legal-contact-email">contato@akiral.com</a>
+          <a href="mailto:contact@akiral.com" className="legal-contact-email">contact@akiral.com</a>
           <p className="legal-p" style={{ marginTop: "0.5rem", marginBottom: 0, fontSize: "0.875rem" }}>
             Ou agende diretamente uma{" "}
             <a href="https://calendly.com/arthur-renck3/book-demo" target="_blank" rel="noopener noreferrer" style={{ color: "#F26522", textDecoration: "none" }}>

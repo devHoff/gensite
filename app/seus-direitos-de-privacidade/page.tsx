@@ -248,7 +248,7 @@ export default function SeusDireitosPage() {
 
         <div className="legal-contact-box">
           <p className="legal-contact-box-title">Canal Oficial de Privacidade — DPO / Encarregado de Dados</p>
-          <a href="mailto:privacidade@akiral.com" className="legal-contact-email">privacidade@akiral.com</a>
+          <a href="mailto:contact@akiral.com" className="legal-contact-email">contact@akiral.com</a>
           <p className="legal-p" style={{ marginTop: "0.875rem", marginBottom: 0, fontSize: "0.875rem" }}>
             Inclua na sua mensagem: <strong>nome completo</strong>, <strong>e-mail de contato</strong>, <strong>tipo de solicitação</strong> (ex: acesso, correção, exclusão) e, quando aplicável, uma descrição clara do que está sendo solicitado.
           </p>
@@ -337,7 +337,7 @@ export default function SeusDireitosPage() {
         </p>
         <div className="legal-contact-box">
           <p className="legal-contact-box-title">Encarregado de Proteção de Dados — AKIRAL</p>
-          <a href="mailto:privacidade@akiral.com" className="legal-contact-email">privacidade@akiral.com</a>
+          <a href="mailto:contact@akiral.com" className="legal-contact-email">contact@akiral.com</a>
           <p className="legal-p" style={{ marginTop: "0.75rem", marginBottom: 0, fontSize: "0.875rem" }}>
             Tempo de resposta: até <strong>15 dias úteis</strong>. Atendimento em português.
           </p>

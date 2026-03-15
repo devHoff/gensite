@@ -13,7 +13,7 @@ const t = {
         tagColor: "#F26522",
         tagBg: "#F2652215",
         tagBorder: "#F2652235",
-        name: "SulMotors",
+        name: "SulMotor",
         subtitle: "Marketplace de revenda de carros",
         desc: "Plataforma completa de compra e venda de veículos com IA para precificação inteligente, matching entre compradores e vendedores, e gestão de anúncios automatizada.",
         idx: "01",
@@ -40,7 +40,7 @@ const t = {
         tagColor: "#F26522",
         tagBg: "#F2652215",
         tagBorder: "#F2652235",
-        name: "SulMotors",
+        name: "SulMotor",
         subtitle: "Car resale marketplace",
         desc: "Complete vehicle buying and selling platform with AI for intelligent pricing, buyer-seller matching, and automated ad management.",
         idx: "01",
@@ -79,7 +79,7 @@ const illustrations = [
     <circle cx="225" cy="148" r="22" fill="#0A0B0D" stroke="#F26522" strokeWidth="1.5" />
     <circle cx="225" cy="148" r="12" fill="none" stroke="#F26522" strokeWidth="0.8" strokeOpacity="0.4" />
     <circle cx="225" cy="148" r="4" fill="#F26522" fillOpacity="0.3" />
-    <text x="160" y="30" textAnchor="middle" fontFamily="'IBM Plex Mono', monospace" fontSize="11" fill="#F26522" fillOpacity="0.5" letterSpacing="3">SULM0T0RS</text>
+    <text x="160" y="30" textAnchor="middle" fontFamily="'IBM Plex Mono', monospace" fontSize="11" fill="#F26522" fillOpacity="0.5" letterSpacing="3">SULM0T0R</text>
   </svg>,
   <svg key="auto" viewBox="0 0 320 180" width="100%" style={{ maxWidth: "320px" }} fill="none">
     <defs>
@@ -107,8 +107,29 @@ const illustrations = [
 export default function Solucoes({ lang }: { lang: Lang }) {
   const sectionRef = useRef<HTMLElement>(null);
   const [active, setActive] = useState(0);
+  const [highlighted, setHighlighted] = useState<string | null>(null);
   const tx = t[lang];
   const total = tx.solutions.length;
+
+  // Handle anchor-based deep-linking: /#sulmotor or /#autodonto
+  useEffect(() => {
+    const hash = window.location.hash.replace("#", "").toLowerCase();
+    if (hash === "sulmotor") {
+      setActive(0);
+      setHighlighted("sulmotor");
+      setTimeout(() => {
+        document.getElementById("solucoes")?.scrollIntoView({ behavior: "smooth" });
+      }, 100);
+      setTimeout(() => setHighlighted(null), 2000);
+    } else if (hash === "autodonto") {
+      setActive(1);
+      setHighlighted("autodonto");
+      setTimeout(() => {
+        document.getElementById("solucoes")?.scrollIntoView({ behavior: "smooth" });
+      }, 100);
+      setTimeout(() => setHighlighted(null), 2000);
+    }
+  }, []);
 
   useEffect(() => {
     const els = sectionRef.current?.querySelectorAll(".fade-up");
@@ -185,10 +206,17 @@ export default function Solucoes({ lang }: { lang: Lang }) {
 
             {/* Main center card */}
             <div
+              id={active === 0 ? "sulmotor" : "autodonto"}
               style={{
                 flex: "0 0 52%", minWidth: 0,
-                background: "#0D0F11", border: `1px solid ${sol.tagColor}55`, borderRadius: "12px",
+                background: "#0D0F11",
+                border: highlighted
+                  ? `1px solid ${sol.tagColor}cc`
+                  : `1px solid ${sol.tagColor}55`,
+                borderRadius: "12px",
                 minHeight: "480px", overflow: "hidden", display: "flex", flexDirection: "column",
+                transition: "border-color 0.4s, box-shadow 0.4s",
+                boxShadow: highlighted ? `0 0 32px ${sol.tagColor}22` : "none",
               }}
             >
               <div style={{ display: "flex", flexDirection: "column", height: "100%", padding: "2rem" }}>

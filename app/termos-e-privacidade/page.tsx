@@ -339,7 +339,7 @@ export default function TermosPrivacidadePage() {
         </p>
         <div className="legal-contact-box">
           <p className="legal-contact-box-title">Canal de Privacidade — Encarregado de Dados</p>
-          <a href="mailto:privacidade@akiral.com" className="legal-contact-email">privacidade@akiral.com</a>
+          <a href="mailto:contact@akiral.com" className="legal-contact-email">contact@akiral.com</a>
           <p className="legal-p" style={{ marginTop: "0.75rem", marginBottom: 0, fontSize: "0.875rem" }}>
             As solicitações serão respondidas no prazo de até <strong>15 (quinze) dias úteis</strong>, contados do recebimento, prorrogáveis quando houver complexidade ou volume que justifique a extensão do prazo, com comunicação ao titular.
           </p>

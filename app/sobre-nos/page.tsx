@@ -182,7 +182,7 @@ export default function SobreNosPage() {
         </p>
         <div className="legal-contact-box">
           <p className="legal-contact-box-title">Contato geral</p>
-          <a href="mailto:contato@akiral.com" className="legal-contact-email">contato@akiral.com</a>
+          <a href="mailto:contact@akiral.com" className="legal-contact-email">contact@akiral.com</a>
           <p className="legal-p" style={{ marginTop: "0.5rem", marginBottom: 0, fontSize: "0.875rem" }}>
             Ou agende diretamente uma{" "}
             <a href="https://calendly.com/arthur-renck3/book-demo" target="_blank" rel="noopener noreferrer" style={{ color: "#F26522", textDecoration: "none" }}>

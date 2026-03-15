@@ -6,8 +6,6 @@ const DEMO_URL = "https://calendly.com/arthur-renck3/book-demo";
 
 const t = {
   pt: {
-    badge1: "FEITO PARA EMPRESAS",
-    badge2: "VAGAS LIMITADAS",
     h1a: "Automatize Processos,",
     h1b: "Escale 10x mais Rápido",
     h1c: "com Agentes de IA.",
@@ -22,8 +20,6 @@ const t = {
     ],
   },
   en: {
-    badge1: "FOR GROWING COMPANIES",
-    badge2: "LIMITED SPOTS",
     h1a: "Automate Processes,",
     h1b: "Scale 10x Faster",
     h1c: "with AI Agents.",
@@ -97,34 +93,6 @@ export default function Hero({ lang }: { lang: Lang }) {
 
       <div className="site-container" style={{ position: "relative", zIndex: 10, padding: "2rem 1.5rem 3rem" }}>
         <div style={{ maxWidth: "820px", margin: "0 auto", textAlign: "center" }}>
-
-          {/* Badge */}
-          <div
-            className="fade-up"
-            style={{
-              display: "inline-flex",
-              alignItems: "center",
-              gap: "0.75rem",
-              background: "rgba(242,101,34,0.08)",
-              border: "1px solid rgba(242,101,34,0.2)",
-              borderRadius: "999px",
-              padding: "0.4rem 1rem 0.4rem 0.875rem",
-              marginBottom: "1.25rem",
-              flexWrap: "wrap",
-              justifyContent: "center",
-            }}
-          >
-            <span style={{ fontFamily: "'IBM Plex Mono', monospace", fontSize: "0.6rem", letterSpacing: "0.14em", color: "#B8BCC2", textTransform: "uppercase" }}>
-              {tx.badge1}
-            </span>
-            <div style={{ width: "1px", height: "10px", background: "rgba(242,101,34,0.35)", flexShrink: 0 }} />
-            <div style={{ display: "flex", alignItems: "center", gap: "0.375rem" }}>
-              <div style={{ width: "5px", height: "5px", borderRadius: "50%", background: "#F26522", boxShadow: "0 0 8px rgba(242,101,34,0.7)", flexShrink: 0 }} />
-              <span style={{ fontFamily: "'IBM Plex Mono', monospace", fontSize: "0.6rem", letterSpacing: "0.14em", color: "#F26522", textTransform: "uppercase" }}>
-                {tx.badge2}
-              </span>
-            </div>
-          </div>
 
           {/* Headline */}
           <h1

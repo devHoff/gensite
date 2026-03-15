@@ -15,8 +15,8 @@ const t = {
     akiralFor: "Akiral para",
     akiralLinks: [
       { label: "Enterprise", href: "#solucoes" },
-      { label: "Pequenas Empresas", href: "#solucoes" },
-      { label: "Pessoal", href: "#solucoes" },
+      { label: "Pequenas Empresas", href: "/#sulmotor" },
+      { label: "Pessoal", href: "/#autodonto" },
     ],
     resources: "Recursos",
     resourceLinks: [
@@ -36,8 +36,8 @@ const t = {
     akiralFor: "Akiral for",
     akiralLinks: [
       { label: "Enterprise", href: "#solucoes" },
-      { label: "Small Business", href: "#solucoes" },
-      { label: "Personal", href: "#solucoes" },
+      { label: "Small Business", href: "/#sulmotor" },
+      { label: "Personal", href: "/#autodonto" },
     ],
     resources: "Resources",
     resourceLinks: [

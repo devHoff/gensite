@@ -20,7 +20,7 @@ const t = {
     ],
     resources: "Recursos",
     resourceLinks: [
-      { label: "Central de Ajuda", href: "#" },
+      { label: "Central de Ajuda", href: "/ajuda" },
       { label: "Programas de parceiros", href: "#" },
     ],
   },
@@ -41,7 +41,7 @@ const t = {
     ],
     resources: "Resources",
     resourceLinks: [
-      { label: "Help Center", href: "#" },
+      { label: "Help Center", href: "/ajuda" },
       { label: "Partner programs", href: "#" },
     ],
   },

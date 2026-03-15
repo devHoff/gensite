@@ -9,6 +9,7 @@ interface LegalLayoutProps {
   subtitle?: string;
   lastUpdated?: string;
   breadcrumb?: string;
+  heroActions?: React.ReactNode;
 }
 
 export default function LegalLayout({
@@ -17,6 +18,7 @@ export default function LegalLayout({
   subtitle,
   lastUpdated,
   breadcrumb,
+  heroActions,
 }: LegalLayoutProps) {
   const [scrolled, setScrolled] = useState(false);
 
@@ -165,6 +167,8 @@ export default function LegalLayout({
               {subtitle}
             </p>
           )}
+
+          {heroActions && heroActions}
 
           {lastUpdated && (
             <div

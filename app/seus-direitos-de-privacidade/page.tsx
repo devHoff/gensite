@@ -2,9 +2,26 @@ import type { Metadata } from "next";
 import LegalLayout from "@/components/ui/LegalLayout";
 
 export const metadata: Metadata = {
-  title: "Seus Direitos de Privacidade — AKIRAL",
+  title: "Seus Direitos de Privacidade",
   description:
-    "Conheça os direitos garantidos pela LGPD (Lei nº 13.709/2018) sobre seus dados pessoais e saiba como exercê-los junto à AKIRAL.",
+    "Conheça os direitos garantidos pela LGPD (Lei nº 13.709/2018) sobre seus dados pessoais e saiba como exercê-los junto à Akiral.",
+  alternates: {
+    canonical: "https://akiral.com/seus-direitos-de-privacidade",
+  },
+  openGraph: {
+    title: "Seus Direitos de Privacidade | Akiral",
+    description:
+      "Conheça os direitos garantidos pela LGPD sobre seus dados pessoais e saiba como exercê-los junto à Akiral.",
+    url: "https://akiral.com/seus-direitos-de-privacidade",
+    siteName: "Akiral",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Seus Direitos de Privacidade | Akiral",
+    description:
+      "Conheça os direitos garantidos pela LGPD sobre seus dados pessoais e saiba como exercê-los junto à Akiral.",
+  },
 };
 
 /* ── Icon SVGs ─────────────────────────────────────────────── */

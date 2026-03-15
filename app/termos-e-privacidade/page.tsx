@@ -2,9 +2,26 @@ import type { Metadata } from "next";
 import LegalLayout from "@/components/ui/LegalLayout";
 
 export const metadata: Metadata = {
-  title: "Termos & Privacidade — AKIRAL",
+  title: "Termos & Privacidade",
   description:
-    "Termos de Uso e Política de Privacidade da AKIRAL. Saiba como coletamos, utilizamos e protegemos seus dados, em conformidade com a LGPD e o Marco Civil da Internet.",
+    "Termos de Uso e Política de Privacidade da Akiral. Saiba como coletamos, utilizamos e protegemos seus dados, em conformidade com a LGPD e o Marco Civil da Internet.",
+  alternates: {
+    canonical: "https://akiral.com/termos-e-privacidade",
+  },
+  openGraph: {
+    title: "Termos & Privacidade | Akiral",
+    description:
+      "Termos de Uso e Política de Privacidade da Akiral, elaborados em conformidade com a LGPD e o Marco Civil da Internet.",
+    url: "https://akiral.com/termos-e-privacidade",
+    siteName: "Akiral",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Termos & Privacidade | Akiral",
+    description:
+      "Termos de Uso e Política de Privacidade da Akiral, elaborados em conformidade com a LGPD e o Marco Civil da Internet.",
+  },
 };
 
 export default function TermosPrivacidadePage() {
